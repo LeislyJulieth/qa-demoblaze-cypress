@@ -1,50 +1,38 @@
-Prueba Funcional Automatizada – Flujo de Compra OpenCart (Cypress)
+Prueba Funcional Automatizada – Flujo de inicios de sesión
 
 Descripción
 Este proyecto contiene la automatización de un flujo de compra E2E en la página de demostración OpenCart usando Cypress.
 
-El flujo automatizado incluye:
+Casos de prueba implementados
 
-Agregar dos productos al carrito.
-Visualizar el carrito de compras.
-Completar el Checkout como invitado (Guest Checkout).
-Finalizar la compra hasta la confirmación: "Your order has been placed!".
+Crear un nuevo usuario en signup
 
-Requisitos Previos
+    -Envío de credenciales únicas.
+    -Validación de respuesta con mensaje de éxito.
 
+Intentar crear un usuario ya existente en signup
 
-Node.js 14+
-npm o yarn
-Cypress 12+ (instalado localmente en el proyecto)
-Git
-Navegador Chrome, Edge o Firefox
+    -Reutiliza el usuario previamente creado.
+    -Espera mensaje de error: "This user already exist".
 
-Ejecución de Pruebas
+Login con usuario y password correctos
 
-Para ejecutar en modo interactivo:
-npx cypress open
+    -Uso del usuario creado.
+    -Validación de respuesta con Auth_token.
 
+Login con credenciales inválidas
 
-Seleccionar el test del flujo de compra y ejecutarlo (Compra.cy.js)
+    -Usuario inexistente o password incorrecta.
+    -Validación de mensajes de error conocidos.
 
-Para ejecutar en modo headless (CLI):
+Requisitos previos
 
-npx cypress open
-Seleccionar la prueba E2E
-seleccionar el archivo compra.cy.js
+Node.js >= 14.x
+npm >= 6.x
+Git instalado
+Cypress >= 12.x
 
-Esto ejecutará todos los tests y mostrará el resultado en la terminal.
+Reportes
 
-Los reportes se generan automáticamente en la terminal o, si se configura un reporter como mochawesome, en HTML dentro de la carpeta cypress/reports.
-
-Estructura del Proyecto
-
-cypress/e2e/ – Contiene los tests E2E que yo implementé.
-cypress.config.js – Configuración del proyecto Cypress.
-package.json – Dependencias y scripts.
-readme.txt – Instrucciones paso a paso de ejecución.
-
-Consideraciones
-
-La prueba está diseñada para ser reproducible en cualquier máquina con Node.js y Cypress.
-Todos los pasos del flujo de compra están automatizados y verificados, incluyendo la confirmación de la orden.
+El proyecto puede usar cypress-mochawesome-reporter para generar reportes HTML.
+-Los reportes aparecerán en la carpeta reports/.

@@ -1,10 +1,20 @@
-module.exports = {
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
   e2e: {
+    baseUrl: 'https://api.demoblaze.com',
+    specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
+      return config;
     },
-    pageLoadTimeout: 120000, // 2 minutos
-    defaultCommandTimeout: 10000 // espera más tiempo en cada comando
   },
-};
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: false,
+    json: true
+  }
+});
 
