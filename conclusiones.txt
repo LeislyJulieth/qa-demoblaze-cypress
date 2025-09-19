@@ -1,0 +1,25 @@
+
+Hallazgos
+
+Estructura del proyecto
+
+    -Se dejó implementada la estructura completa de pruebas automatizadas en Cypress, incluyendo casos positivos y negativos para los endpoints signup y login.
+    -Cada prueba contiene aserciones con las respuestas esperadas que debería devolver la API.
+
+Comportamiento esperado de la API
+
+    -signup debería aceptar un usuario nuevo y devolver "Sign up successful".
+    -signup con un usuario existente debería devolver "This user already exist".
+    -login con credenciales válidas debería devolver un Auth_token.
+    -login con credenciales inválidas debería devolver "User does not exist" o "Wrong password".
+
+Limitaciones encontradas
+
+    -Aunque se implementaron correctamente los casos de prueba, la API de Demoblaze es una demo y no funciona correctamente.
+    -El reporter cypress-mochawesome-reporter es opcional y puede no funcionar en todos los entornos.
+
+Conclusiones
+
+    -El proyecto refleja cómo debería funcionar el flujo de pruebas para signup y login.
+    -Se definieron claramente los resultados esperados, aunque la API no se comporta de manera estable al momento de las pruebas.
+    -Esto demuestra la capacidad de diseñar y automatizar pruebas REST, aún si el sistema bajo prueba no es confiable.

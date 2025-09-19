@@ -1,12 +1,19 @@
 {
-  "name": "prueba-tecnica",
+  "name": "demoblaze-cypress",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "report:merge": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json",
+    "report:generate": "npx marge cypress/reports/report.json -f final-report -o cypress/reports/html",
+    "report": "npm run report:merge && npm run report:generate"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "cypress": "^12.0.0",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "mochawesome": "^7.0.0",
+    "mochawesome-merge": "^4.0.0",
+    "mochawesome-report-generator": "^5.0.0"
+  }
 }
